@@ -1,0 +1,9 @@
+c:\users\zhuda\documents\visual studio 2013\Projects\触发角\触发角\bin\Debug\触发角.exe
+c:\users\zhuda\documents\visual studio 2013\Projects\触发角\触发角\bin\Debug\触发角.pdb
+c:\users\zhuda\documents\visual studio 2013\Projects\触发角\触发角\obj\Debug\触发角.csprojResolveAssemblyReference.cache
+c:\users\zhuda\documents\visual studio 2013\Projects\触发角\触发角\obj\Debug\触发角.Form1.resources
+c:\users\zhuda\documents\visual studio 2013\Projects\触发角\触发角\obj\Debug\触发角.Properties.Resources.resources
+c:\users\zhuda\documents\visual studio 2013\Projects\触发角\触发角\obj\Debug\触发角.csproj.GenerateResource.Cache
+c:\users\zhuda\documents\visual studio 2013\Projects\触发角\触发角\obj\Debug\触发角.exe
+c:\users\zhuda\documents\visual studio 2013\Projects\触发角\触发角\obj\Debug\触发角.pdb
+c:\users\zhuda\documents\visual studio 2013\Projects\触发角\触发角\bin\Debug\触发角.exe.config

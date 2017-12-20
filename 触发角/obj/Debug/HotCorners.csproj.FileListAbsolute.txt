@@ -1,0 +1,9 @@
+C:\Users\zhuda\Documents\Visual Studio 2013\Projects\触发角\触发角\bin\Debug\触发角.exe.config
+C:\Users\zhuda\Documents\Visual Studio 2013\Projects\触发角\触发角\obj\Debug\触发角.exe
+C:\Users\zhuda\Documents\Visual Studio 2013\Projects\触发角\触发角\obj\Debug\触发角.pdb
+C:\Users\zhuda\Documents\Visual Studio 2013\Projects\触发角\触发角\bin\Debug\触发角.exe
+C:\Users\zhuda\Documents\Visual Studio 2013\Projects\触发角\触发角\bin\Debug\触发角.pdb
+C:\Users\zhuda\Documents\Visual Studio 2013\Projects\触发角\触发角\obj\Debug\触发角.Form1.resources
+C:\Users\zhuda\Documents\Visual Studio 2013\Projects\触发角\触发角\obj\Debug\触发角.Properties.Resources.resources
+C:\Users\zhuda\Documents\Visual Studio 2013\Projects\触发角\触发角\obj\Debug\HotCorners.csproj.GenerateResource.Cache
+C:\Users\zhuda\Documents\Visual Studio 2013\Projects\触发角\触发角\obj\Debug\HotCorners.csprojResolveAssemblyReference.cache
