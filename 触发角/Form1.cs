@@ -12,6 +12,51 @@ namespace 触发角
         private bool canShowRightBottom = true;
         private ContextMenu notifyiconMnu;
 
+        private string[] _menuStrings = new string[]
+        {
+            "无",
+            "显示桌面",
+            "mission control"
+        };
+
+        //private delegate void LeftTopHandle(int type);
+
+        //private delegate void LeftBottomHandle(int type);
+
+        //private delegate void RightTopHandle(int type);
+
+        //private delegate void RightBottonHandle(int type);
+
+        //private delegate void LocationHandel(int type);
+
+        //private event LocationHandel locationEvent;
+
+        //private event LeftTopHandle leftTopEvent;
+        //private event LeftBottomHandle leftBottomEvent;
+        //private event RightTopHandle rightTopEvent;
+        //private event RightBottonHandle rightBottomEvent;
+
+
+        private int _leftTop = 0;
+        private int _leftBottom = 0;
+        private int _rightTop = 0;
+        private int _rightBottom = 0;
+
+        enum FunctionType
+        {
+            None = 0,
+            WinD = 1,
+            WinTab = 2
+        }
+        enum MouseLoc
+        {
+            LeftTop = 0,
+            LeftBottom = 1,
+            RightTop = 2,
+            RightBottom = 3
+        }
+
+
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +76,18 @@ namespace 触发角
             notifyiconMnu = new ContextMenu(mnuItms);
             notifyIcon1.ContextMenu = notifyiconMnu;
             //为托盘程序加入设定好的ContextMenu对象 
+
+            //添加菜单
+            var a = _menuStrings.Clone();
+            var b = _menuStrings.Clone();
+            var c = _menuStrings.Clone();
+            var d = _menuStrings.Clone();
+
+            comboBox1.DataSource = a;
+            comboBox2.DataSource = b;
+            comboBox3.DataSource = c;
+            comboBox4.DataSource = d;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -48,6 +105,7 @@ namespace 触发角
             label1.Text = p.X.ToString();
             label2.Text = p.Y.ToString();
 
+            //判断坐标
             doShow(p.X, p.Y);
         }
 
@@ -59,7 +117,7 @@ namespace 触发角
                 if (canShowLeftTop)
                 {
                     canShowLeftTop = false;
-                    showWinTab();
+                    DoAction(_leftTop);
                 }
             }
             else if (y > Height - 10 && x > Width - 10)
@@ -67,7 +125,7 @@ namespace 触发角
                 if (canShowRightBottom)
                 {
                     canShowRightBottom = false;
-                    showWinD();
+                    DoAction(_rightBottom);
                 }
             }
             else
@@ -78,14 +136,31 @@ namespace 触发角
         }
 
 
-
-
-
         #region 发送按键
 
         [DllImport("user32.dll", EntryPoint = "keybd_event", SetLastError = true)]
         private static extern void keybd_event(Keys bVk, byte bScan, uint dwFlags, uint dwExtraInfo);
 
+        /// <summary>
+        /// 执行操作
+        /// </summary>
+        /// <param name="functionType"></param>
+        private void DoAction(int functionType)
+        {
+            switch (functionType)
+            {
+                case (int)FunctionType.None:
+                    break;
+                case (int)FunctionType.WinD:
+                    showWinD();
+                    break;
+                case (int)FunctionType.WinTab:
+                    showWinTab();
+                    break;
+                default:
+                    break;
+            }
+        }
 
         private void showWinTab()
         {
@@ -108,7 +183,10 @@ namespace 触发角
             keybd_event(Keys.LWin, 0, 0x02, 0);
             keybd_event(Keys.D, 0, 0x02, 0);
         }
+
         #endregion
+
+        #region 窗体事件
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
@@ -122,7 +200,7 @@ namespace 触发角
             }
         }
 
-        public void notifyIcon1_showfrom(object sender, System.EventArgs e)
+        public void notifyIcon1_showfrom(object sender, EventArgs e)
         {
             this.Show();
             this.ShowInTaskbar = true;
@@ -131,7 +209,7 @@ namespace 触发角
 
         }
 
-        public void ExitSelect(object sender, System.EventArgs e)
+        public void ExitSelect(object sender, EventArgs e)
         {
             //隐藏托盘程序中的图标 
             notifyIcon1.Visible = false;
@@ -162,5 +240,31 @@ namespace 触发角
             Hide();
             e.Cancel = true;
         }
+        #endregion
+
+        #region 更改下拉菜单
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _leftTop = comboBox1.SelectedIndex;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _rightTop = comboBox2.SelectedIndex;
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _leftBottom = comboBox3.SelectedIndex;
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _rightBottom = comboBox4.SelectedIndex;
+        }
+
+        #endregion
+
     }
 }
